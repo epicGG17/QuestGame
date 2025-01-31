@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dm7aiccxyr5eq"
-path="res://.godot/imported/jelly_shield.glb-9d50ec63fb3d22871ad69e4fe6795ee2.scn"
+uid="uid://b3ggf2ukmp24y"
+path="res://.godot/imported/coin.glb-3b40289600fe53a595cf14319a8dece5.scn"
 
 [deps]
 
-source_file="res://items/jelly_and_coin/jelly_shield.glb"
-dest_files=["res://.godot/imported/jelly_shield.glb-9d50ec63fb3d22871ad69e4fe6795ee2.scn"]
+source_file="res://assets/items/coins/coin.glb"
+dest_files=["res://.godot/imported/coin.glb-3b40289600fe53a595cf14319a8dece5.scn"]
 
 [params]
 

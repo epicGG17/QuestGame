@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvayj44qgnqvu"
-path="res://.godot/imported/jelly_shield_Image.png-6ab17015f6001c62512f66b8569fa078.ctex"
+uid="uid://cf7y8fwsssb5d"
+path="res://.godot/imported/jellyfish_icon_normal.png-fdbbe1d36ee289cfe054daad03e7d406.ctex"
 metadata={
 "vram_texture": false
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://items/jelly_and_coin/jelly_shield_Image.png"
-dest_files=["res://.godot/imported/jelly_shield_Image.png-6ab17015f6001c62512f66b8569fa078.ctex"]
+source_file="res://assets/weapons/jellyfish_shield/jellyfish_icon_normal.png"
+dest_files=["res://.godot/imported/jellyfish_icon_normal.png-fdbbe1d36ee289cfe054daad03e7d406.ctex"]
 
 [params]
 
@@ -22,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
