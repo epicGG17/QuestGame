@@ -10,7 +10,12 @@ var target_velocity = Vector3.ZERO
 
 @export var jump_impulse = 20
 
-
+var money = 0
+func _ready():
+	
+	pass
+	
+	
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	
@@ -43,3 +48,7 @@ func _physics_process(delta):
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
+	
+func addMoney():
+	money += 1
+	print("you just made money: ", money)

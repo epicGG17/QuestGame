@@ -19,7 +19,7 @@ albedo_color = Color(0.278431, 0.639216, 0.772549, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_gqpa0"]
 material = SubResource("StandardMaterial3D_sl6h6")
 
-[node name="Dude" type="CharacterBody3D"]
+[node name="Dude" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_5g5px")
 
 [node name="Body" type="MeshInstance3D" parent="."]
