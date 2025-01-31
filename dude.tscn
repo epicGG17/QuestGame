@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgkx5tj3rpi1x"]
+
+[ext_resource type="Script" path="res://dude.gd" id="1_5g5px"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhdov"]
+albedo_color = Color(0.827451, 0.141176, 0.505882, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w54q2"]
+material = SubResource("StandardMaterial3D_rhdov")
+top_radius = 0.2
+bottom_radius = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sttts"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sl6h6"]
+albedo_color = Color(0.278431, 0.639216, 0.772549, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_gqpa0"]
+material = SubResource("StandardMaterial3D_sl6h6")
+
+[node name="Dude" type="CharacterBody3D"]
+script = ExtResource("1_5g5px")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_w54q2")
+
+[node name="BodyCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_sttts")
+
+[node name="Head" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39494, 0)
+mesh = SubResource("SphereMesh_gqpa0")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.637505, 0.770446, 0, -0.770446, 0.637505, 0, 8.21457, 6.67795)

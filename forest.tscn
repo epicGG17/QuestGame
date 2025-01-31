@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5r0f6txoyebp"]
+
+[ext_resource type="PackedScene" uid="uid://bgkx5tj3rpi1x" path="res://dude.tscn" id="1_b3kcy"]
+[ext_resource type="Texture2D" uid="uid://bnve3udoid87j" path="res://texture/grass.jpg" id="1_jgokt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d4w0o"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqlof"]
+albedo_texture = ExtResource("1_jgokt")
+uv1_scale = Vector3(32, 32, 32)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c74tf"]
+material = SubResource("StandardMaterial3D_yqlof")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ah6lf"]
+albedo_color = Color(0, 0.854902, 0.435294, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cx1sf"]
+material = SubResource("StandardMaterial3D_ah6lf")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8e4n"]
+size = Vector3(2, 2, 2)
+
+[node name="Forest" type="Node3D"]
+
+[node name="floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+shape = SubResource("BoxShape3D_d4w0o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+mesh = SubResource("BoxMesh_c74tf")
+
+[node name="Dude" parent="." instance=ExtResource("1_b3kcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03105, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.149984, 0.988688, 0, -0.988688, 0.149984, 0, 18.4245, 0)
+
+[node name="Node3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16104, 9.65108)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("BoxMesh_cx1sf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
+shape = SubResource("BoxShape3D_h8e4n")
