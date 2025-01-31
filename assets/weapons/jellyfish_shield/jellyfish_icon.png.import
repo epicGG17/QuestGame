@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn1w4dn60eky5"
-path="res://.godot/imported/jellyfish_icon.png-f2298205d1ab771233c6e08ba1d426ef.ctex"
+path="res://.godot/imported/jellyfish_icon.png-c37339a8785fe6fddfccddc6bf84ec14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/jelly_and_coin/jellyfish_icon.png"
-dest_files=["res://.godot/imported/jellyfish_icon.png-f2298205d1ab771233c6e08ba1d426ef.ctex"]
+source_file="res://assets/weapons/jellyfish_shield/jellyfish_icon.png"
+dest_files=["res://.godot/imported/jellyfish_icon.png-c37339a8785fe6fddfccddc6bf84ec14.ctex"]
 
 [params]
 
