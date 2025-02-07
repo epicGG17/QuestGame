@@ -5,24 +5,28 @@ extends CharacterBody3D
 @export var speed = 14
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
-
-var target_velocity = Vector3.ZERO
-
 @export var jump_impulse = 20
 
-var money = 0
+@onready var floor_timer: Timer = $FloorTimer
+
+var target_velocity: Vector3 = Vector3.ZERO
+var money: int = 0
+var was_on_floor: bool = false
+
 func _ready():
-	
+	floor_timer.connect("timeout", floorCheck)
 	pass
 	
 	
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	
-	
+	if is_on_floor():
+		was_on_floor = true
+		floor_timer.start()
 	
 	# Jumping.
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	if was_on_floor and Input.is_action_just_pressed("jump"):
 		target_velocity.y = jump_impulse
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
@@ -52,3 +56,6 @@ func _physics_process(delta):
 func addMoney():
 	money += 1
 	print("you just made money: ", money)
+	
+func floorCheck():
+	was_on_floor = false
