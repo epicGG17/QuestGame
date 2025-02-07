@@ -52,3 +52,6 @@ shape = SubResource("BoxShape3D_h8e4n")
 
 [node name="Coin" parent="." instance=ExtResource("3_54ee6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2257, 2.7125, 0)
+
+[node name="Coin2" parent="." instance=ExtResource("3_54ee6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.459, 2.09166, 0)
