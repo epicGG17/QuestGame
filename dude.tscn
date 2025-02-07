@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgkx5tj3rpi1x"]
+[gd_scene load_steps=9 format=3 uid="uid://bgkx5tj3rpi1x"]
 
 [ext_resource type="Script" path="res://dude.gd" id="1_5g5px"]
 
@@ -23,6 +23,9 @@ albedo_color = Color(0.278431, 0.639216, 0.772549, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_gqpa0"]
 material = SubResource("StandardMaterial3D_sl6h6")
 
+[sub_resource type="BoxMesh" id="BoxMesh_xpphl"]
+size = Vector3(0.6, 0.3, 0.2)
+
 [node name="Dude" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_5g5px")
 
@@ -39,12 +42,17 @@ shape = SubResource("SphereShape3D_t0kco")
 
 [node name="Head" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Head"]
+[node name="Head" type="MeshInstance3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39494, 0)
 mesh = SubResource("SphereMesh_gqpa0")
 
+[node name="eyes" type="MeshInstance3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022393, 1.55935, -0.432152)
+layers = 257
+mesh = SubResource("BoxMesh_xpphl")
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.637505, 0.770446, 0, -0.770446, 0.637505, 0, 8.21457, 6.67795)
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 8.21457, 6.67795)
 
 [node name="FloorTimer" type="Timer" parent="."]
 wait_time = 0.2
