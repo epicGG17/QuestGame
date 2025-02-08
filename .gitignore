@@ -1,2 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
+
+# ignore .import files as this will make commits look ugly
+**/*.import

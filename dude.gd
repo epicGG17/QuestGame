@@ -6,8 +6,11 @@ extends CharacterBody3D
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
 @export var jump_impulse = 20
+@export var rotate_acceleration: float = 2.0
 
 @onready var floor_timer: Timer = $FloorTimer
+@onready var camera_pivot: Node3D = $CameraPivot
+@onready var head_ref: Node3D = $Head
 
 var target_velocity: Vector3 = Vector3.ZERO
 var money: int = 0
@@ -16,7 +19,12 @@ var was_on_floor: bool = false
 func _ready():
 	floor_timer.connect("timeout", floorCheck)
 	pass
-	
+
+func _process(delta):
+	if Input.is_action_pressed("rotate_camera_left"):
+		camera_pivot.rotate_y(delta * rotate_acceleration)
+	if Input.is_action_pressed("rotate_camera_right"):
+		camera_pivot.rotate_y(-delta * rotate_acceleration)
 	
 func _physics_process(delta):
 	var direction = Vector3.ZERO
@@ -29,17 +37,17 @@ func _physics_process(delta):
 	if was_on_floor and Input.is_action_just_pressed("jump"):
 		target_velocity.y = jump_impulse
 	if Input.is_action_pressed("move_right"):
-		direction.x += 1
+		direction += camera_pivot.global_basis.x
 	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
+		direction -= camera_pivot.global_basis.x
 	if Input.is_action_pressed("move_down"):
-		direction.z += 1
+		direction += camera_pivot.global_basis.z
 	if Input.is_action_pressed("move_up"):
-		direction.z -= 1
+		direction -= camera_pivot.global_basis.z
 
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-		$Head.basis = Basis.looking_at(direction)
+		head_ref.basis = Basis.looking_at(direction)
 
 	# Ground Velocity
 	target_velocity.x = direction.x * speed
@@ -52,7 +60,7 @@ func _physics_process(delta):
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
-	
+
 func addMoney():
 	money += 1
 	print("you just made money: ", money)
