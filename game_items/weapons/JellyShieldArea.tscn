@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2moxd2xh8pvp"]
 
 [ext_resource type="Script" path="res://game_items/weapons/JellyShieldArea.gd" id="1_0v125"]
-[ext_resource type="PackedScene" uid="uid://gdcuaps2c2ka" path="res://assets/weapons/jellyfish_shield/jelly_shield.glb" id="1_71aup"]
+[ext_resource type="PackedScene" uid="uid://cjfcew4nmp5dl" path="res://assets/weapons/jellyfish_shield/jelly_shield.glb" id="1_71aup"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rlgqf"]
 size = Vector3(0.198418, 2.45551, 2.62585)

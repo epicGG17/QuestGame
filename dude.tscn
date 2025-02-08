@@ -43,9 +43,11 @@ shape = SubResource("SphereShape3D_t0kco")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39494, 0)
 mesh = SubResource("SphereMesh_gqpa0")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.637505, 0.770446, 0, -0.770446, 0.637505, 0, 8.21457, 6.67795)
-
 [node name="FloorTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.637505, 0.770446, 0, -0.770446, 0.637505, 0, 8.21457, 6.67795)

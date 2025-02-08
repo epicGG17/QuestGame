@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c5r0f6txoyebp"]
 
 [ext_resource type="PackedScene" uid="uid://bgkx5tj3rpi1x" path="res://dude.tscn" id="1_b3kcy"]
-[ext_resource type="Texture2D" uid="uid://bnve3udoid87j" path="res://texture/grass.jpg" id="1_jgokt"]
+[ext_resource type="Texture2D" uid="uid://dm5nvh8mg6hh0" path="res://texture/grass.jpg" id="1_jgokt"]
 [ext_resource type="PackedScene" uid="uid://bbpnkuum81o28" path="res://game_items/coin.tscn" id="3_54ee6"]
 [ext_resource type="PackedScene" uid="uid://c2moxd2xh8pvp" path="res://game_items/weapons/JellyShieldArea.tscn" id="4_ama51"]
 
