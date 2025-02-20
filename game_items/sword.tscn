@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cynjvv1pqfo0"]
+
+[ext_resource type="Script" path="res://game_items/sword.gd" id="1_mcuif"]
+[ext_resource type="PackedScene" uid="uid://dqanngdasexq4" path="res://assets/weapons/sword/sword.glb" id="1_s2e61"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbm4b"]
+size = Vector3(0.536255, 3.02466, 1)
+
+[node name="sword" type="Area3D" groups=["weapon1"]]
+script = ExtResource("1_mcuif")
+
+[node name="sword" parent="." instance=ExtResource("1_s2e61")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0200806, 1.01233, 0)
+shape = SubResource("BoxShape3D_gbm4b")
+
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
