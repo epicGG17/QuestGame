@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgkx5tj3rpi1x"]
+[gd_scene load_steps=10 format=3 uid="uid://bgkx5tj3rpi1x"]
 
 [ext_resource type="Script" path="res://dude.gd" id="1_5g5px"]
 
@@ -26,6 +26,10 @@ material = SubResource("StandardMaterial3D_sl6h6")
 [sub_resource type="BoxMesh" id="BoxMesh_xpphl"]
 size = Vector3(0.6, 0.3, 0.2)
 
+[sub_resource type="SphereMesh" id="SphereMesh_2okga"]
+radius = 0.25
+height = 0.5
+
 [node name="Dude" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_5g5px")
 
@@ -51,8 +55,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022393, 1.55935, -0.432152)
 layers = 257
 mesh = SubResource("BoxMesh_xpphl")
 
+[node name="Hand1" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.638687, 0.158961, -0.636271)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Hand1"]
+mesh = SubResource("SphereMesh_2okga")
+
+[node name="Hand2" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.492291, 0.158961, -0.636271)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Hand2"]
+mesh = SubResource("SphereMesh_2okga")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 8.21457, 6.67795)
+current = true
 
 [node name="FloorTimer" type="Timer" parent="."]
 wait_time = 0.2

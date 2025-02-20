@@ -1,15 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5r0f6txoyebp"]
+[gd_scene load_steps=11 format=3 uid="uid://btwcdr4ej0to3"]
 
-[ext_resource type="PackedScene" uid="uid://bgkx5tj3rpi1x" path="res://dude.tscn" id="1_b3kcy"]
-[ext_resource type="Texture2D" uid="uid://bnve3udoid87j" path="res://texture/grass.jpg" id="1_jgokt"]
-[ext_resource type="PackedScene" uid="uid://bbpnkuum81o28" path="res://game_items/coin.tscn" id="3_54ee6"]
-[ext_resource type="PackedScene" uid="uid://cynjvv1pqfo0" path="res://game_items/sword.tscn" id="4_in80v"]
+[ext_resource type="Texture2D" uid="uid://bnve3udoid87j" path="res://texture/grass.jpg" id="1_83gid"]
+[ext_resource type="PackedScene" uid="uid://bgkx5tj3rpi1x" path="res://dude.tscn" id="2_abslu"]
+[ext_resource type="PackedScene" uid="uid://bbpnkuum81o28" path="res://game_items/coin.tscn" id="3_ggawp"]
+[ext_resource type="PackedScene" uid="uid://cynjvv1pqfo0" path="res://game_items/sword.tscn" id="4_pxmcr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d4w0o"]
 size = Vector3(60, 2, 60)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqlof"]
-albedo_texture = ExtResource("1_jgokt")
+albedo_texture = ExtResource("1_83gid")
 uv1_scale = Vector3(32, 32, 32)
 
 [sub_resource type="BoxMesh" id="BoxMesh_c74tf"]
@@ -36,7 +36,7 @@ shape = SubResource("BoxShape3D_d4w0o")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
 mesh = SubResource("BoxMesh_c74tf")
 
-[node name="Dude" parent="." instance=ExtResource("1_b3kcy")]
+[node name="Dude" parent="." instance=ExtResource("2_abslu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03105, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -51,11 +51,11 @@ mesh = SubResource("BoxMesh_cx1sf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
 shape = SubResource("BoxShape3D_h8e4n")
 
-[node name="Coin" parent="." instance=ExtResource("3_54ee6")]
+[node name="Coin" parent="." instance=ExtResource("3_ggawp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2257, 2.7125, 0)
 
-[node name="Coin2" parent="." instance=ExtResource("3_54ee6")]
+[node name="Coin2" parent="." instance=ExtResource("3_ggawp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.459, 2.09166, 0)
 
-[node name="Area3D" parent="." instance=ExtResource("4_in80v")]
+[node name="Area3D" parent="." instance=ExtResource("4_pxmcr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.05958, 3.29902, -5.90866)
