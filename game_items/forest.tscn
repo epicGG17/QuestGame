@@ -34,6 +34,7 @@ size = Vector3(2, 2, 2)
 shape = SubResource("BoxShape3D_d4w0o")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 mesh = SubResource("BoxMesh_c74tf")
 
 [node name="Dude" parent="." instance=ExtResource("2_abslu")]

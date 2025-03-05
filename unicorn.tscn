@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcq7c01dl0nkm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfgd5"]
+albedo_color = Color(0.898039, 0.188235, 0.529412, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0twsl"]
+material = SubResource("StandardMaterial3D_yfgd5")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bp7nt"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qk0ms"]
+top_radius = 0.0
+bottom_radius = 0.2
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfqkr"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_bmwbk"]
+material = SubResource("StandardMaterial3D_xfqkr")
+radius = 0.1
+height = 0.2
+
+[node name="unicorn" type="CharacterBody3D"]
+
+[node name="body" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_0twsl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_bp7nt")
+
+[node name="horn" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.937008, -0.349308, 0, 0.349308, 0.937008, 0, 1.02794, 0.144817)
+mesh = SubResource("CylinderMesh_qk0ms")
+
+[node name="eye" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192304, 0.484892, 0.431133)
+mesh = SubResource("SphereMesh_bmwbk")
+
+[node name="eye2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.134377, 0.484892, 0.431133)
+mesh = SubResource("SphereMesh_bmwbk")
