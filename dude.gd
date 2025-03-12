@@ -1,8 +1,6 @@
 extends CharacterBody3D
 
-const PickItems: Dictionary = {
-	"SWORD" : "res://game_items/sword.tscn",
-}
+
 
 # How fast the player moves in meters per second.
 @export var speed = 14
@@ -18,8 +16,8 @@ var target_velocity: Vector3 = Vector3.ZERO
 var money: int = 0
 var was_on_floor: bool = false
 #ran into item
-var itemRef1 = null
-var itemRef2 = null
+var itemRef = null
+
 #has and item
 var handItem = null
 var hasItem = false
@@ -84,15 +82,14 @@ func addMoney():
 
 func addItemRef(item: Node3D, hand: int):
 	if hand == 1:
-		itemRef1 = item
-		if(itemRef1 == null):
+		itemRef = item
+		if(itemRef == null):
 			print("There no item to get pick up")
 		else:
 			print("item is ready to be pick up")
 		return
 		
-	if hand == 2:
-		itemRef1 = item
+	
 	
 func floorCheck():
 	was_on_floor = false
@@ -100,10 +97,10 @@ func floorCheck():
 func pickUpItem():
 	if handItem == null:
 		
-		if itemRef1 != null:
+		if itemRef != null:
 			print("You pick an item")
-			handItem = itemRef1
-			itemRef1 = null
+			handItem = itemRef
+			itemRef = null
 			hasItem = true
 			
 			
@@ -124,3 +121,6 @@ func dropItem():
 			
 	
 	
+
+
+
