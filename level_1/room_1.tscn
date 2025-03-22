@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1in61i86a54o"]
+
+[ext_resource type="PackedScene" uid="uid://bgkx5tj3rpi1x" path="res://dude.tscn" id="1_5ln3e"]
+[ext_resource type="Script" path="res://level_1/room_1.gd" id="1_fc18i"]
+[ext_resource type="PackedScene" uid="uid://v7euke8nugc6" path="res://in_out.tscn" id="2_4o4ps"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3f5y"]
+albedo_color = Color(0.364706, 0.364706, 0.364706, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gexom"]
+material = SubResource("StandardMaterial3D_u3f5y")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7q5il"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km7rn"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3s6tb"]
+material = SubResource("StandardMaterial3D_km7rn")
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yyhgu"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[node name="room_1" type="Node3D"]
+script = ExtResource("1_fc18i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_gexom")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7q5il")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 13.898, 0)
+
+[node name="Dude" parent="." instance=ExtResource("1_5ln3e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.600708, 2.49731, 31.5799)
+
+[node name="inOut" parent="." instance=ExtResource("2_4o4ps")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 34.0962)
+currentLvlID = 1
+
+[node name="player_position" parent="inOut" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89433e-07, 1, 6.74232)
+
+[node name="inOut2" parent="." instance=ExtResource("2_4o4ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9818, 0, -34)
+currentLvlID = 2
+
+[node name="player_position" parent="inOut2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09094, 6.4017)
+
+[node name="Red_rose" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51622, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Red_rose"]
+mesh = SubResource("BoxMesh_3s6tb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Red_rose"]
+shape = SubResource("BoxShape3D_yyhgu")
+
+[editable path="inOut"]
+[editable path="inOut2"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1l2e8hc0j4gm"]
+
+[ext_resource type="PackedScene" uid="uid://bgkx5tj3rpi1x" path="res://dude.tscn" id="1_2ebxy"]
+[ext_resource type="PackedScene" uid="uid://v7euke8nugc6" path="res://in_out.tscn" id="2_nms4t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3f5y"]
+albedo_color = Color(0.364706, 0.364706, 0.364706, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gexom"]
+material = SubResource("StandardMaterial3D_u3f5y")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7q5il"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl32w"]
+albedo_color = Color(0.0823529, 0.568627, 0.917647, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pg8w3"]
+material = SubResource("StandardMaterial3D_hl32w")
+size = Vector3(8, 1, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0kgbf"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[node name="room_2" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_gexom")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7q5il")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 13.898, 0)
+
+[node name="Dude" parent="." instance=ExtResource("1_2ebxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3262, 2.49731, 6.4473)
+
+[node name="pond_1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51622, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pond_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.92341, 0, 0)
+mesh = SubResource("BoxMesh_pg8w3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pond_1"]
+shape = SubResource("BoxShape3D_0kgbf")
+
+[node name="pond_2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3195, 1.51622, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pond_2"]
+mesh = SubResource("BoxMesh_pg8w3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pond_2"]
+shape = SubResource("BoxShape3D_0kgbf")
+
+[node name="inOut" parent="." instance=ExtResource("2_nms4t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34.0511, 0, 4.62364)
