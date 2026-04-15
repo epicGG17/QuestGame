@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtiwdsfqrvmge"]
+
+[ext_resource type="PackedScene" uid="uid://bgkx5tj3rpi1x" path="res://dude.tscn" id="1_8ttil"]
+[ext_resource type="Script" path="res://level_1/room_4.gd" id="1_ag21d"]
+[ext_resource type="PackedScene" uid="uid://v7euke8nugc6" path="res://in_out.tscn" id="2_4r3xj"]
+[ext_resource type="PackedScene" uid="uid://dlfhulqwokbhp" path="res://game_items/puzzels/puz_1.tscn" id="4_qxik2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3f5y"]
+albedo_color = Color(0.364706, 0.364706, 0.364706, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gexom"]
+material = SubResource("StandardMaterial3D_u3f5y")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7q5il"]
+size = Vector3(60, 2, 60)
+
+[node name="room_4" type="Node3D"]
+script = ExtResource("1_ag21d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_gexom")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7q5il")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 13.898, 0)
+
+[node name="Dude" parent="." instance=ExtResource("1_8ttil")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90314, 2.49731, 30.801)
+
+[node name="inOut" parent="." instance=ExtResource("2_4r3xj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.16405, 0, 34.1585)
+currentLvlID = 4
+
+[node name="player_position" parent="inOut" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, 2.48128, 2.59551)
+
+[node name="puz1" parent="." instance=ExtResource("4_qxik2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 5)
+color = Color(1, 0, 0, 1)
+colorChangeArr = Array[Color]([Color(0.176471, 0.635294, 0.972549, 1), Color(1, 0, 0, 1), Color(1, 1, 0, 1), Color(0.976471, 0.45098, 0.6, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1), Color(0.87451, 0.545098, 0, 1)])
+
+[node name="puz2" parent="." instance=ExtResource("4_qxik2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.184293, 2, 5)
+color = Color(0, 0, 1, 1)
+colorChangeArr = Array[Color]([Color(0.176471, 0.635294, 0.972549, 1), Color(0.87451, 0.545098, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 1, 1), Color(1, 1, 0, 1), Color(0.976471, 0.45098, 0.6, 1), Color(0, 1, 0, 1)])
+
+[node name="puz3" parent="." instance=ExtResource("4_qxik2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95511, 2, 5)
+color = Color(1, 1, 0, 1)
+colorChangeArr = Array[Color]([Color(0.176471, 0.635294, 0.972549, 1), Color(1, 0, 0, 1), Color(1, 1, 0, 1), Color(0.976471, 0.45098, 0.6, 1), Color(0.87451, 0.545098, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1)])
+
+[editable path="inOut"]

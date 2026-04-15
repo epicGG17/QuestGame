@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://bn0ev73o0x6s2"]
+
+[ext_resource type="PackedScene" uid="uid://bgkx5tj3rpi1x" path="res://dude.tscn" id="1_eshun"]
+[ext_resource type="Script" path="res://level_1/room_3.gd" id="1_l8wm2"]
+[ext_resource type="PackedScene" uid="uid://v7euke8nugc6" path="res://in_out.tscn" id="2_hy41j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3f5y"]
+albedo_color = Color(0.364706, 0.364706, 0.364706, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gexom"]
+material = SubResource("StandardMaterial3D_u3f5y")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7q5il"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vwle"]
+albedo_color = Color(1, 0.917647, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hb6bm"]
+material = SubResource("StandardMaterial3D_0vwle")
+top_radius = 0.0
+bottom_radius = 1.5
+height = 4.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uo38b"]
+height = 4.0
+radius = 1.5
+
+[node name="room_3" type="Node3D"]
+script = ExtResource("1_l8wm2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_gexom")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7q5il")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 13.898, 0)
+
+[node name="Dude" parent="." instance=ExtResource("1_eshun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8486, 2.49731, 0.159393)
+
+[node name="cone" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.79493, -10.7662)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cone"]
+mesh = SubResource("CylinderMesh_hb6bm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cone"]
+shape = SubResource("CylinderShape3D_uo38b")
+
+[node name="cone3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4353, 3.79493, 9.37867)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cone3"]
+mesh = SubResource("CylinderMesh_hb6bm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cone3"]
+shape = SubResource("CylinderShape3D_uo38b")
+
+[node name="cone2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.52789, 3.79493, 9.95883)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cone2"]
+mesh = SubResource("CylinderMesh_hb6bm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cone2"]
+shape = SubResource("CylinderShape3D_uo38b")
+
+[node name="inOut" parent="." instance=ExtResource("2_hy41j")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34.0982, 0, 0)
+currentLvlID = 3
+
+[node name="player_position" parent="inOut" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08162e-07, 2.83083, 2.47445)
+
+[node name="inOut2" parent="." instance=ExtResource("2_hy41j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.0787)
+currentLvlID = 4
+
+[node name="player_position" parent="inOut2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48552, 2.66561)
+
+[editable path="inOut"]
+[editable path="inOut2"]

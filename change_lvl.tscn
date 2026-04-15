@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl7al7vn4qowp"]
+
+[ext_resource type="Script" path="res://change_lvl.gd" id="1_k1dkj"]
+
+[node name="changeLvl" type="Node3D"]
+script = ExtResource("1_k1dkj")
