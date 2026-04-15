@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlfhulqwokbhp"]
+
+[ext_resource type="Script" path="res://game_items/puzzels/puz_1.gd" id="1_wfbw6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dj7ca"]
+radius = 2.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awnom"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3jaxe"]
+material = SubResource("StandardMaterial3D_awnom")
+size = Vector3(2, 2, 2)
+
+[node name="puz1" type="Area3D"]
+script = ExtResource("1_wfbw6")
+colorChangeArr = Array[Color]([Color(0.176471, 0.635294, 0.972549, 1), Color(1, 0, 0, 1), Color(1, 1, 0, 1), Color(0.976471, 0.45098, 0.6, 1), Color(0, 1, 0, 1)])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_dj7ca")
+
+[node name="block" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="block"]
+mesh = SubResource("BoxMesh_3jaxe")

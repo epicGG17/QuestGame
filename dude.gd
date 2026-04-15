@@ -36,10 +36,10 @@ func _physics_process(delta):
 		was_on_floor = true
 		floor_timer.start()
 	#interaction
-	if Input.is_action_pressed("interact"):
+	if Input.is_action_just_pressed("interact"):
 		#pick up or drop items
 		if(handItem == null and !hasItem):
-			print("pick up item")
+			#print("pick up item")
 			pickUpItem()
 		
 			

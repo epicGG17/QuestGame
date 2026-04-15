@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1l2e8hc0j4gm"]
+[gd_scene load_steps=10 format=3 uid="uid://d1l2e8hc0j4gm"]
 
 [ext_resource type="PackedScene" uid="uid://bgkx5tj3rpi1x" path="res://dude.tscn" id="1_2ebxy"]
+[ext_resource type="Script" path="res://level_1/room_2.gd" id="1_bdg4y"]
 [ext_resource type="PackedScene" uid="uid://v7euke8nugc6" path="res://in_out.tscn" id="2_nms4t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3f5y"]
@@ -24,6 +25,7 @@ size = Vector3(8, 1, 8)
 size = Vector3(1.5, 1.5, 1.5)
 
 [node name="room_2" type="Node3D"]
+script = ExtResource("1_bdg4y")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -37,7 +39,7 @@ shape = SubResource("BoxShape3D_7q5il")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 13.898, 0)
 
 [node name="Dude" parent="." instance=ExtResource("1_2ebxy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3262, 2.49731, 6.4473)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31698, 2.49731, 27.3861)
 
 [node name="pond_1" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51622, 0)
@@ -47,6 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.92341, 0, 0)
 mesh = SubResource("BoxMesh_pg8w3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pond_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.82395, 0, 0)
 shape = SubResource("BoxShape3D_0kgbf")
 
 [node name="pond_2" type="StaticBody3D" parent="."]
@@ -59,4 +62,14 @@ mesh = SubResource("BoxMesh_pg8w3")
 shape = SubResource("BoxShape3D_0kgbf")
 
 [node name="inOut" parent="." instance=ExtResource("2_nms4t")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34.0511, 0, 4.62364)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.94019, 0, 33.6544)
+currentLvlID = 2
+
+[node name="player_position" parent="inOut" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7868, 3.25429)
+
+[node name="inOut2" parent="." instance=ExtResource("2_nms4t")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 34.083, 0, 0)
+currentLvlID = 3
+
+[editable path="inOut"]
